@@ -25,6 +25,7 @@ funcionarios.id_funcionario,
 funcionarios.nome_completo
 FROM departamentos
 JOIN funcionarios 
-ON departamento.id_gerente = funcionarios.id_funcionario;
+ON departamento.id_gerente = funcionarios.id_funcionario
+JOIN setores.id_setores = funcionarios.id_funcionario;
 
 
