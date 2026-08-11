@@ -2,7 +2,7 @@ CREATE TABLE departamentos(
   id_departamento SERIAL PRIMARY KEY,
   nome_departamento VARCHAR(100) NOT NULL,
   id_gerente INT NOT NULL
-  FOREIGN KEY (id_gerente) REFERENCES funcionarios (id_funcionario) );
+  );
 -- criação da tabela departamentos, na qual determina o gerente que está responsável pelo departamento e qual seguimento o departamento atua.
 
 CREATE TABLE setores(
@@ -11,7 +11,7 @@ CREATE TABLE setores(
   id_supervisor INT NOT NULL,
   id_departamento INT NOT NULL
   FOREIGN KEY (id_departamento) REFERENCES departamentos(id_departamento) 
-  FOREIGN KEY (id_supervisor) REFERENCES funcionarios (id_funcionario));
+  );
 --tabela criada para organização dos setores, pertencentes a cada departamento com os seus determinados reponsáveis.
 
 CREATE TABLE cargos(
@@ -33,6 +33,16 @@ CREATE TABLE funcionarios(
   FOREIGN KEY (id_cargo) REFERENCES cargos (id_cargo) );
 -- tabela criada para funcionários para registrar dados após a contratação, será utilizada chave estrangeira na 
 -- coluna "id_cargo" para facilitar a atualização caso a empresa queira mudar o nome do cargo.
+
+
+============================================================================================================================================================================================
+--CHAVES ESTRANGEIRAS INSERIDAS POSTERIORMENTE
+
+--adicionando FOREIGN KEY na tabela departamentos: 
+ALTER TABLE departamentos ADD FOREIGN KEY (id_gerente) REFERENCES funcionarios(id_funcionario);
+
+--adicionando FOREIGN KEY na tabela setores:
+ALTER TABLE FOREIGN KEY (id_supervisor) REFERENCES funcionarios (id_funcionario);
 
 
 
