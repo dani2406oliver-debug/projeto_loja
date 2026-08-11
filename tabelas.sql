@@ -42,7 +42,7 @@ CREATE TABLE funcionarios(
 ALTER TABLE departamentos ADD FOREIGN KEY (id_gerente) REFERENCES funcionarios(id_funcionario);
 
 --adicionando FOREIGN KEY na tabela setores:
-ALTER TABLE FOREIGN KEY (id_supervisor) REFERENCES funcionarios (id_funcionario);
+ALTER TABLE setores ADD FOREIGN KEY (id_supervisor) REFERENCES funcionarios (id_funcionario);
 
 
 
